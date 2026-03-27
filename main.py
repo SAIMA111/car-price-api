@@ -1,9 +1,18 @@
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI
 import pandas as pd
 import numpy as np
 from model import prepare_X, w0, w
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 def home():
