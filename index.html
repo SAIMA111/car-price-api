@@ -2,21 +2,62 @@
 <html>
 <head>
     <title>Car Price Predictor</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<h2>Car Price Predictor</h2>
+<div class="container">
 
-<input id="year" placeholder="Year"><br><br>
-<input id="hp" placeholder="Engine HP"><br><br>
-<input id="cyl" placeholder="Cylinders"><br><br>
-<input id="hwy" placeholder="Highway MPG"><br><br>
-<input id="city" placeholder="City MPG"><br><br>
-<input id="pop" placeholder="Popularity"><br><br>
+    <h1>Car Price Predictor</h1>
+    <p class="subtitle">
+        Predict car price based on engine performance, fuel efficiency and age
+    </p>
 
-<button onclick="predict()">Predict Price</button>
+    <div class="form">
 
-<h3 id="result"></h3>
+        <div class="input-group">
+            <label>Year of Manufacture</label>
+            <input id="year" placeholder="e.g. 2015">
+            <small>Newer cars usually cost more</small>
+        </div>
+
+        <div class="input-group">
+            <label>Engine Horsepower (HP)</label>
+            <input id="hp" placeholder="e.g. 150 - 300">
+            <small>Higher HP = higher price</small>
+        </div>
+
+        <div class="input-group">
+            <label>Number of Cylinders</label>
+            <input id="cyl" placeholder="e.g. 4, 6, 8">
+            <small>More cylinders → better performance</small>
+        </div>
+
+        <div class="input-group">
+            <label>Highway MPG</label>
+            <input id="hwy" placeholder="e.g. 25">
+            <small>Fuel efficiency on highway</small>
+        </div>
+
+        <div class="input-group">
+            <label>City MPG</label>
+            <input id="city" placeholder="e.g. 18">
+            <small>Fuel efficiency in city</small>
+        </div>
+
+        <div class="input-group">
+            <label>Popularity Score</label>
+            <input id="pop" placeholder="e.g. 2000">
+            <small>Represents brand popularity</small>
+        </div>
+
+        <button onclick="predict()">Predict Price</button>
+
+        <div id="result"></div>
+
+    </div>
+</div>
 
 <script>
 async function predict() {
@@ -29,23 +70,23 @@ async function predict() {
         popularity: Number(document.getElementById("pop").value)
     };
 
+    document.getElementById("result").innerText = "Predicting...";
+
     try {
         const response = await fetch("https://car-price-api-0erc.onrender.com/predict", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
+            headers: {"Content-Type": "application/json"},
             body: JSON.stringify(data)
         });
 
         const result = await response.json();
 
         document.getElementById("result").innerText =
-            "Predicted Price: $" + result.predicted_price.toFixed(2);
+            "💰 Estimated Price: $" + result.predicted_price.toFixed(2);
 
     } catch (error) {
         document.getElementById("result").innerText =
-            "Error: " + error;
+            "❌ Error: Unable to fetch prediction";
     }
 }
 </script>
