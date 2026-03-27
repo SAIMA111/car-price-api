@@ -9,9 +9,9 @@
 
 <div class="container">
 
-    <h1>Car Price Predictor</h1>
+    <h1>🚗 Car Price Predictor</h1>
     <p class="subtitle">
-        Predict car price based on engine performance, fuel efficiency and age
+        Predict car price based on performance and brand popularity
     </p>
 
     <div class="form">
@@ -47,9 +47,33 @@
         </div>
 
         <div class="input-group">
-            <label>Popularity Score</label>
-            <input id="pop" placeholder="e.g. 2000">
-            <small>Represents brand popularity</small>
+            <label>Select Car Brand (Popularity)</label>
+
+            <select id="pop">
+                <option value="">Select a brand</option>
+                <option value="3916">BMW (3916)</option>
+                <option value="3105">Audi (3105)</option>
+                <option value="2031">Toyota (2031)</option>
+                <option value="1385">Chevrolet (1385)</option>
+                <option value="5657">Ford (5657)</option>
+                <option value="873">Volkswagen (873)</option>
+                <option value="617">Chrysler (617)</option>
+                <option value="819">Fiat (819)</option>
+                <option value="640">Subaru (640)</option>
+                <option value="200">Mazda (200)</option>
+                <option value="2200">Honda (2200)</option>
+                <option value="1013">Mercedes-Benz (1013)</option>
+                <option value="86">Rolls-Royce (86)</option>
+                <option value="500">Jeep (500)</option>
+                <option value="1200">Hyundai (1200)</option>
+                <option value="1300">Kia (1300)</option>
+                <option value="400">Dodge (400)</option>
+                <option value="300">Mini (300)</option>
+                <option value="700">Nissan (700)</option>
+                <option value="900">Lexus (900)</option>
+            </select>
+
+            <small>Select brand to auto-fill popularity score</small>
         </div>
 
         <button onclick="predict()">Predict Price</button>
