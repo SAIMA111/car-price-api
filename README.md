@@ -42,7 +42,7 @@ This is a full-stack machine learning project that predicts car prices based on 
 
 ---
 
-## 🚀 Run Locally
+## Run Locally
 
 ```bash
 pip install -r requirements.txt
