@@ -4,14 +4,6 @@ This is a full-stack machine learning project that predicts car prices based on 
 
 ---
 
-## Live Demo
-
-**Live App (Frontend):** https://eloquent-tiramisu-6aea7b.netlify.app/
-  
-**API Docs (Backend):** https://car-price-api-0erc.onrender.com/docs  
-
----
-
 ## Features
 
 - Predict car price based on user input  
@@ -42,17 +34,7 @@ This is a full-stack machine learning project that predicts car prices based on 
 
 ---
 
-## Run Locally
 
-```bash
-pip install -r requirements.txt
-py -m uvicorn main:app --reload
 
-```
 
-Then open:
-
-http://127.0.0.1:8000/docs
-
-Frontend can be opened by running index.html in a browser.
 
